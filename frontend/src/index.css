@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Product+Sans:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    --primary: 217 89% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 15% 15%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 15% 15%;
+
+    --destructive: 5 71% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 89% 61%;
+
+    --radius: 0.75rem;
+
+    /* Google brand colors */
+    --google-blue: 217 89% 61%;
+    --google-red: 5 80% 56%;
+    --google-yellow: 43 96% 50%;
+    --google-green: 142 53% 43%;
+
+    /* Glass effect */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --glass-shadow: 220 60% 50% / 0.08;
+
+    /* Surface layers */
+    --surface: 0 0% 100%;
+    --surface-hover: 220 14% 97%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 89% 61%;
+  }
+
+  .dark {
+    --background: 222 20% 7%;
+    --foreground: 210 40% 98%;
+    --card: 222 20% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 20% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 89% 61%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 212 26% 83%;
+
+    --glass-bg: 222 20% 10% / 0.7;
+    --glass-border: 222 20% 20% / 0.3;
+    --glass-shadow: 220 60% 10% / 0.3;
+
+    --surface: 222 20% 10%;
+    --surface-hover: 222 20% 14%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50 rounded-2xl;
+    box-shadow: 0 8px 32px hsl(var(--glass-shadow)),
+                0 1px 2px hsl(var(--glass-shadow));
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500 ease-out;
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px hsl(var(--glass-shadow)),
+                0 4px 8px hsl(var(--glass-shadow));
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--google-blue)) 0%,
+      hsl(var(--google-red)) 25%,
+      hsl(var(--google-yellow)) 50%,
+      hsl(var(--google-green)) 75%,
+      hsl(var(--google-blue)) 100%
+    );
+    background-size: 200% auto;
+    animation: gradient-shift 4s ease infinite;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--google-blue) / 0.05) 0%,
+      hsl(var(--google-red) / 0.03) 25%,
+      hsl(var(--google-yellow) / 0.04) 50%,
+      hsl(var(--google-green) / 0.05) 75%,
+      hsl(var(--google-blue) / 0.03) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-move 12s ease infinite;
+  }
+
+  .google-dot {
+    @apply inline-block w-2.5 h-2.5 rounded-full;
+  }
+
+  .google-dot-blue { background-color: hsl(var(--google-blue)); }
+  .google-dot-red { background-color: hsl(var(--google-red)); }
+  .google-dot-yellow { background-color: hsl(var(--google-yellow)); }
+  .google-dot-green { background-color: hsl(var(--google-green)); }
+
+  .color-bar {
+    @apply h-1 w-full rounded-full;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--google-blue)) 0%,
+      hsl(var(--google-red)) 33%,
+      hsl(var(--google-yellow)) 66%,
+      hsl(var(--google-green)) 100%
+    );
+  }
+
+  .btn-google {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300;
+    background: hsl(var(--google-blue));
+    color: hsl(0 0% 100%);
+  }
+
+  .btn-google:hover {
+    background: hsl(217 89% 55%);
+    box-shadow: 0 4px 20px hsl(var(--google-blue) / 0.35);
+    transform: translateY(-2px);
+  }
+
+  .btn-google-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 border-2;
+    border-color: hsl(var(--google-blue));
+    color: hsl(var(--google-blue));
+    background: transparent;
+  }
+
+  .btn-google-outline:hover {
+    background: hsl(var(--google-blue) / 0.08);
+    transform: translateY(-2px);
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .tag-pill {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+    background: hsl(var(--google-blue) / 0.1);
+    color: hsl(var(--google-blue));
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+@keyframes gradient-move {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
