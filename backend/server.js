@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 // PASTE YOUR NETLIFY URL HERE for FRONTEND_URL if not using .env
-const FRONTEND_URL = process.env.FRONTEND_URL || 'https://your-frontend-on-netlify.app';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://hilarious-figolla-4d5ebb.netlify.app';
 
 app.use(cors({
   origin: FRONTEND_URL
