@@ -2,8 +2,8 @@
     "name": "gdc-root",
     "private": true,
     "scripts": {
-        "start": "npm start --prefix backend",
+        "start": "node server.js",
         "build": "npm install --prefix backend",
-        "install": "npm install --prefix backend"
+        "postinstall": "npm install --prefix backend"
     }
 }
