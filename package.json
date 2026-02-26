@@ -1,0 +1,9 @@
+{
+    "name": "gdc-root",
+    "private": true,
+    "scripts": {
+        "start": "npm start --prefix backend",
+        "build": "npm install --prefix backend",
+        "install": "npm install --prefix backend"
+    }
+}
